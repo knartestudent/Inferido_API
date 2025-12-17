@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEATHER API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      text-align: center;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input {
+      padding: 8px;
+      width: 70%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>☁️ WEATHER API</h1>
+    <p>Check city weather</p>
+    <input id="city" placeholder="Enter city name">
+    <br>
+    <button onclick="getWeather()">Get Weather</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function getWeather() {
+      const city = document.getElementById("city").value;
+      const apiKey = "9438dcf6efa0187b9862b264fe8429e2";
+
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("result").innerHTML =
+            `🌡 Temperature: ${data.main.temp}°C<br>☁️ ${data.weather[0].description}`;
+        });
+    }
+  </script>
+
+</body>
+</html>

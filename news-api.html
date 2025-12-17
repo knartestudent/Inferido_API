@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NEWS API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #e0c3fc, #8ec5fc);
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 25px;
+      background: #6a5acd;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    a {
+      color: #6a5acd;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>📰 NEWS API</h1>
+    <p style="text-align:center;">Latest headlines using GNews API</p>
+
+    <button onclick="getNews()">Load Latest News</button>
+
+    <ul id="newsList"></ul>
+  </div>
+
+  <script>
+    function getNews() {
+      const apiKey = "57c2fc785a7bc9874fb8af9e8ec5bc50";
+      const url = `https://gnews.io/api/v4/top-headlines?lang=en&country=us&max=5&apikey=${apiKey}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const list = document.getElementById("newsList");
+          list.innerHTML = "";
+
+          data.articles.forEach(article => {
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${article.title}</strong><br>
+                            <a href="${article.url}" target="_blank">Read full article</a>`;
+            list.appendChild(li);
+          });
+        })
+        .catch(() => {
+          alert("Error fetching news");
+        });
+    }
+  </script>
+
+</body>
+</html>

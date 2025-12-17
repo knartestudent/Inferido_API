@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CAT API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6f0;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    img {
+      margin-top: 15px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🐱 CAT API</h1>
+    <p>Get a random cat image</p>
+    <button onclick="getCat()">Load Cat</button>
+    <img id="catImg">
+  </div>
+
+  <script>
+    function getCat() {
+      fetch("https://api.thecatapi.com/v1/images/search", {
+        headers: { "x-api-key": "YOUR_API_KEY_HERE" }
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("catImg").src = data[0].url;
+      });
+    }
+  </script>
+
+</body>
+</html>

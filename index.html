@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Integration Project</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: #ffffff;
+      width: 90%;
+      max-width: 800px;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #f8f9ff;
+      border-radius: 14px;
+      padding: 25px 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 10px 22px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .card a:hover {
+      background: #5563d6;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌐 API Integration Project</h1>
+    <p>Select an API below to view its functionality</p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h2>🐱 Cat API</h2>
+        <p>Displays a random cat image using an external API.</p>
+        <a href="cat-api.html">Open Cat API</a>
+      </div>
+
+      <div class="card">
+        <h2>📰 News API</h2>
+        <p>Fetches and displays the latest news headlines.</p>
+        <a href="news-api.html">Open News API</a>
+      </div>
+
+      <div class="card">
+        <h2>☁️ Weather API</h2>
+        <p>Shows real-time weather information by city.</p>
+        <a href="weather-api.html">Open Weather API</a>
+      </div>
+
+    </div>
+
+    <footer>
+      © 2025 — API Demonstration Project
+    </footer>
+  </div>
+
+</body>
+</html>
